@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: verahession
-Version: 0.1.8
+Version: 0.1.9
 Summary: Python client library for Vera AI chatbot by Hession Dynamics
 Home-page: https://github.com/hession-dynamics/verahession
 Author: Jack Hession
@@ -10,14 +10,14 @@ Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent
 Classifier: License :: OSI Approved :: MIT License
-Classifier: Intended Audience :: Developers
-Classifier: Topic :: Software Development :: Libraries
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 
 # Verahession
 
-**Verahession** is an intelligent conversational interface built for AI agents, supporting message sending, rewriting, and local intent classification.
+**Verahession** is a lightweight Python interface for interacting with **V.E.R.A.** (Vocally Enhanced Research Assistant), an AI-powered conversational agent. This module provides simple tools to connect to the VERA API, send messages, rewrite input, and run local intent classification using your own training data.
+
+---
 
 ---
 
@@ -61,7 +61,7 @@ message = input("You: ")
 result = vera.send(message)
 print("Vera says:", result.get("response", result))
 
-# Rewrite a message
+# Rewrite a message (or text, whatever)
 message = input("Text: ")
 result = vera.rewrite(message)
 print("Vera rewrites:", result.get("response", result))
