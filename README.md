@@ -44,7 +44,7 @@ message = input("You: ")
 result = vera.send(message)
 print("Vera says:", result.get("response", result))
 
-# Rewrite a message
+# Rewrite a message (or text, whatever)
 message = input("Text: ")
 result = vera.rewrite(message)
 print("Vera rewrites:", result.get("response", result))
