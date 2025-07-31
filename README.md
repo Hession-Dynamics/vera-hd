@@ -1,6 +1,8 @@
 # Verahession
 
-**Verahession** is an intelligent conversational interface built for AI agents, supporting message sending, rewriting, and local intent classification.
+**Verahession** is a lightweight Python interface for interacting with **V.E.R.A.** (Vocally Enhanced Research Assistant), an AI-powered conversational agent. This module provides simple tools to connect to the VERA API, send messages, rewrite input, and run local intent classification using your own training data.
+
+---
 
 ---
 
