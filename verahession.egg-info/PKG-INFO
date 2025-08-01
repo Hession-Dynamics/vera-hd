@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: verahession
-Version: 0.1.9
+Version: 0.1.10
 Summary: Python client library for Vera AI chatbot by Hession Dynamics
 Home-page: https://github.com/hession-dynamics/verahession
 Author: Jack Hession
@@ -33,9 +33,7 @@ Description-Content-Type: text/markdown
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/verahession.git
-cd verahession
-pip install -r requirements.txt
+python3 -m pip install verahession
 ```
 
 ---
