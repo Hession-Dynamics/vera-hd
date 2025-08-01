@@ -18,7 +18,7 @@
 ## 📦 Installation
 
 ```bash
-python3 -m pip install vera-hd
+python3 -m pip install verahession
 ```
 
 ---
