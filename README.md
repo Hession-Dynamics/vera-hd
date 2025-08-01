@@ -18,9 +18,7 @@
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/verahession.git
-cd verahession
-pip install -r requirements.txt
+python3 -m pip install vera-hd
 ```
 
 ---
