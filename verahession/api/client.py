@@ -4,7 +4,7 @@ import requests
 
 class vera_interface:
     def __init__(self, API_KEY, AGENT_NAME, USER_NAME="User"):
-        self.API_CHAT_URL = "https://api.hessiondynamics.com/chat"
+        self.API_CHAT_URL = "https://hessiondynamics.com/chat"
         self.api_key = API_KEY
         self.agent_name = AGENT_NAME
         self.user_name = USER_NAME
@@ -25,7 +25,7 @@ class vera_interface:
             return {"error": str(e)}
     
     def rewrite(self, text: str):
-        rewrite_url = "https://api.hessiondynamics.com/rewrite"
+        rewrite_url = "https://hessiondynamics.com/rewrite"
         payload = {
             "text": text,
             "API": self.api_key

@@ -4,7 +4,7 @@ import requests
 
 class vera_interface:
     def __init__(self, API_KEY, AGENT_NAME, USER_NAME="User"):
-        self.API_CHAT_URL = "https://api.hessiondynamics.com/chat"
+        self.API_CHAT_URL = "https://hessiondynamics.com/chat"
         self.api_key = API_KEY
         self.agent_name = AGENT_NAME
         self.user_name = USER_NAME

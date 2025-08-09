@@ -1,29 +1,37 @@
-import torch
-from .model import NeuralNet
-from .utils import tokenize, stem, bag_of_words
+import numpy as np
+import pickle
+from .utils import tokenize, bag_of_words
 
 class Classifier:
     def __init__(self, model_path):
-        data = torch.load(model_path)
+        with open(model_path, 'rb') as f:
+            data = pickle.load(f)
 
         self.all_words = data["all_words"]
         self.tags = data["tags"]
-        input_size = data["input_size"]
-        hidden_size = data["hidden_size"]
-        output_size = data["output_size"]
+        self.W1 = data["W1"]
+        self.b1 = data["b1"]
+        self.W2 = data["W2"]
+        self.b2 = data["b2"]
 
-        self.model = NeuralNet(input_size, hidden_size, output_size)
-        self.model.load_state_dict(data["model_state"])
-        self.model.eval()
+    def relu(self, x):
+        return np.maximum(0, x)
+
+    def softmax(self, x):
+        e_x = np.exp(x - np.max(x, axis=1, keepdims=True))
+        return e_x / np.sum(e_x, axis=1, keepdims=True)
 
     def classify(self, sentence):
         tokens = tokenize(sentence)
-        bag = bag_of_words(tokens, self.all_words)
-        bag = torch.from_numpy(bag).float().unsqueeze(0)  # Shape: (1, input_size)
+        x = np.array([bag_of_words(tokens, self.all_words)])
 
-        with torch.no_grad():
-            output = self.model(bag)
-            probs = torch.softmax(output, dim=1)
-            confidence, pred_idx = torch.max(probs, dim=1)
-            intent_tag = self.tags[pred_idx.item()]
-            return intent_tag, confidence.item()
+        z1 = np.dot(x, self.W1) + self.b1
+        a1 = self.relu(z1)
+        z2 = np.dot(a1, self.W2) + self.b2
+        probs = self.softmax(z2)
+
+        pred_idx = np.argmax(probs)
+        confidence = probs[0][pred_idx]
+        intent = self.tags[pred_idx]
+
+        return intent, confidence
