@@ -3,7 +3,7 @@ import os
 import sys
 
 SETUP_PY = "setup.py"
-INIT_FILE = "verahession/__init__.py"  # Path to your package's __init__.py
+INIT_FILE = "__init__.py"  # Path to your package's __init__.py
 TEST_SCRIPT = "tests/test.py"
 PACKAGE_NAME = "verahession"
 
