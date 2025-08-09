@@ -25,7 +25,7 @@ class vera_interface:
             return {"error": str(e)}
     
     def rewrite(self, text: str):
-        rewrite_url = "https://api.hessiondynamics.com/rewrite"
+        rewrite_url = "https://hessiondynamics.com/rewrite"
         payload = {
             "text": text,
             "API": self.api_key
