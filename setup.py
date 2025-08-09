@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="verahession",
-    version="0.1.22",
+    version="0.1.24",
     author="Jack Hession",
     author_email="support@hessiondynamics.com",
     description="Python client library for Vera AI chatbot by Hession Dynamics",

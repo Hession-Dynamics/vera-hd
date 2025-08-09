@@ -3,6 +3,7 @@ import os
 import sys
 
 SETUP_PY = "setup.py"
+INIT_FILE = "verahession/__init__.py"  # Path to your package's __init__.py
 TEST_SCRIPT = "tests/test.py"
 PACKAGE_NAME = "verahession"
 
@@ -26,8 +27,20 @@ def update_setup_version():
     new_content = content.replace(f'version="{old_version}"', f'version="{new_version}"')
     with open(SETUP_PY, "w", encoding="utf-8") as f:
         f.write(new_content)
-    print(f"Version updated: {old_version} -> {new_version}")
+    print(f"setup.py version updated: {old_version} -> {new_version}")
     return new_version
+
+def update_init_version(new_version):
+    with open(INIT_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+    new_content = re.sub(
+        r'__version__\s*=\s*"[^"]+"',
+        f'__version__ = "{new_version}"',
+        content
+    )
+    with open(INIT_FILE, "w", encoding="utf-8") as f:
+        f.write(new_content)
+    print(f"__init__.py __version__ updated to {new_version}")
 
 def run_command(cmd):
     print(f"Running: {cmd}")
@@ -38,16 +51,16 @@ def run_command(cmd):
 
 def main():
     new_version = update_setup_version()
+    update_init_version(new_version)
 
     run_command("rm -rf build dist *.egg-info")
     run_command("python3 setup.py sdist bdist_wheel")
-    run_command("twine upload dist/*")
+    run_command("python3 -m twine upload dist/*")
 
     run_command(f"python3 -m pip uninstall -y {PACKAGE_NAME}")
     run_command(f"python3 -m pip install --user --editable .")
 
     repo_root = os.getcwd()
-    # Set PYTHONPATH for test run inline in shell
     run_command(f"PYTHONPATH={repo_root} python3 {TEST_SCRIPT}")
 
 if __name__ == "__main__":
