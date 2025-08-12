@@ -84,4 +84,6 @@ Replace `API_KEY` and `AGENTNAME` with the appropriate values.
 
 ---
 
+If you do not yet have an API key, you need to create an account at https://hessiondynamics.com/login - and then press 'create API key' - do NOT share the key with nanyone.
+
 This completes the basic usage instructions for the verahession library. For additional help, consult the documentation or support channels.
