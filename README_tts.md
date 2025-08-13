@@ -1,6 +1,6 @@
 # verahession TTS Usage Example
 
-This example shows how to use the `tts_interface` class from the `verahession.tts` module to convert text to speech.
+This example shows how to use the `tts_interface` class from the `verahession.api` module to convert text to speech.
 
 ---
 
