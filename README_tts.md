@@ -15,7 +15,7 @@ This example shows how to use the `tts_interface` class from the `verahession.tt
 ### Example Script (`tts_example.py`)
 
 ```python
-from verahession.tts import tts_interface
+from verahession.api import tts_interface
 
 if __name__ == "__main__":
     API_KEY = "your_api_key_here"
