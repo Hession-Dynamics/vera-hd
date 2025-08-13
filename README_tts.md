@@ -37,6 +37,6 @@ if __name__ == "__main__":
 - The script will send a TTS request, play the audio if successful, and print status messages.
 
 ---
-If you do not yet have an API key, you need to create an account at https://hessiondynamics.com/login - and then press 'create API key' - do NOT share the key with nanyone.
+If you do not yet have an API key, you need to create an account at https://hessiondynamics.com/login - and then press 'create API key' - do NOT share the key with anyone.
 
 For more information, check the verahession documentation or support channels.
